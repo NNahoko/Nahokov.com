@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import { Grommet, Box, Text } from "grommet";
-import MyBookinfo from "./MyBookino";
+import MyBookinfo from "./MyBookinfo";
 import Home from "./Home";
 import MyTodolist from "./MyTodolist";
 

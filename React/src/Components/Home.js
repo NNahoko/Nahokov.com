@@ -10,7 +10,7 @@ import {
   TableHeader,
 } from "grommet";
 import { Link, Route } from "react-router-dom";
-import MyBookinfo from "./MyBookino";
+import MyBookinfo from "./MyBookinfo";
 import MyTodolist from "./MyTodolist";
 
 function Home() {
