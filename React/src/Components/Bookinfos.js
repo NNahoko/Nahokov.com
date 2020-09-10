@@ -20,16 +20,16 @@ export const BookInfos = React.createContext();
 const COLUMNS = [
   {
     property: "title",
-    label: "Title",
-    format: (book) => <strong>{book.title}</strong>,
+    label: "書籍名",
+    // format: (book) => <strong>{book.title}</strong>,
   },
   {
     property: "author",
-    label: "Author",
+    label: "著者名",
   },
   {
     property: "publisher",
-    label: "Publisher",
+    label: "出版社",
   },
 ];
 
@@ -59,12 +59,14 @@ function Books() {
               <TableRow>
                 {COLUMNS.map((c) => (
                   <TableCell
+                    margin={{ left: "small" }}
                     key={c.property}
                     scope="col"
                     border="bottom"
-                    align={c.align}
                   >
-                    <Text>{c.label}</Text>
+                    <Text>
+                      <strong>{c.label}</strong>
+                    </Text>
                   </TableCell>
                 ))}
               </TableRow>
@@ -85,17 +87,21 @@ function Books() {
                       </Text>
                     </TableCell>
                   ))}
-                  <TableCell>
-                    <Button
-                      plain={false}
-                      icon={<Trash size="small" />}
-                      color="#3D138D"
-                      margin="small"
-                      onClick={() => deleteInfo(book.id)}
-                    />
-                    <BookInfos.Provider value={book}>
-                      <EditForm />
-                    </BookInfos.Provider>
+                  <TableCell margin="xxsmall">
+                    <Box direction="row">
+                      <BookInfos.Provider value={book}>
+                        <EditForm />
+                      </BookInfos.Provider>
+
+                      <Button
+                        plain={false}
+                        icon={<Trash size="small" />}
+                        color="dark-6"
+                        margin="xsmall"
+                        size="small"
+                        onClick={() => deleteInfo(book.id)}
+                      />
+                    </Box>
                   </TableCell>
                 </TableRow>
               ))}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_BOOKINFO, BOOKINFO } from "./Query";
-
 import {
   Box,
   Button,
@@ -38,13 +37,7 @@ const BookForm = () => {
   return (
     <Grommet>
       <Box fill align="center" justify="center">
-        <Button
-          icon={<Add />}
-          color="#3D138D"
-          label="Add"
-          onClick={onOpen}
-          margin={{ top: "large" }}
-        />
+        <Button icon={<Add />} label="登録" color="dark-6" onClick={onOpen} />
         <Form>
           {open && (
             <Layer
@@ -62,14 +55,14 @@ const BookForm = () => {
                 onSubmit={onClose}
               >
                 <Box flex={false} direction="row" justify="between">
-                  <Heading level={2} margin="none">
-                    AddBookinfo
+                  <Heading level={3} margin="none" color="dark-6">
+                    新規
                   </Heading>
                   <Button icon={<Close />} onClick={onClose} />
                 </Box>
                 <Box flex="grow" overflow="auto" pad={{ vertical: "medium" }}>
                   <FormField
-                    label="Title"
+                    label="書籍名"
                     name="title"
                     margin={("small", { bottom: "small" })}
                   >
@@ -82,7 +75,7 @@ const BookForm = () => {
                   </FormField>
 
                   <FormField
-                    label="Author"
+                    label="著者名"
                     name="author"
                     margin={("small", { bottom: "small" })}
                   >
@@ -95,7 +88,7 @@ const BookForm = () => {
                   </FormField>
 
                   <FormField
-                    label="Publisher"
+                    label="出版社"
                     name="publisher"
                     margin={("small", { bottom: "small" })}
                   >
@@ -113,13 +106,13 @@ const BookForm = () => {
                     margin={{ top: "small" }}
                   ></Box>
                 </Box>
-                <Box flex={false} as="footer" align="start">
+                <Box flex={false} as="footer" align="end">
                   <Button
                     icon={<Add size="small" />}
                     type="submit"
-                    label="Add"
+                    label="登録"
+                    color="dark-6"
                     onClick={submit}
-                    primary
                   />
                 </Box>
               </Box>

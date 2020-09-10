@@ -1,22 +1,13 @@
 import React, { useState } from "react";
-import { Grommet, Box, Button, Grid, Text, Avatar, Footer } from "grommet";
+import { Grommet, Box, Button, Grid, Text, Footer, Anchor } from "grommet";
 import { grommet } from "grommet/themes";
-import { Attraction } from "grommet-icons";
-import image from "./image/IMG_8064.jpg";
-
+import { Attraction, Github } from "grommet-icons";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Navbar, MainContents } from "./Router";
 
 const MyDashboard = () => {
   const [sidebar, setSidebar] = useState(true);
 
-  /*
-  const SidebarHeader = () => (
-    <Box align="center" gap="small" direction="row" margin="xsmall">
-      <Avatar src={image} />
-    </Box>
-  );
-  */
   return (
     <Grommet full theme={grommet}>
       <Grid
@@ -39,10 +30,15 @@ const MyDashboard = () => {
         >
           <Button onClick={() => setSidebar(!sidebar)}>
             <Text size="xlarge">
-              Nahokov.com <Attraction />
+              Nakajima's Portfolio
+              <Attraction />
             </Text>
           </Button>
-          <Avatar size="medium" src={image} round="large" />
+          <Box direction="row" align="center" pad="xsmall">
+            <Anchor color="white" href="https://github.com/NNahoko">
+              <Github style={{ width: "40px", height: "40px" }} />
+            </Anchor>
+          </Box>
         </Box>
         <Router>
           {sidebar && (
@@ -68,20 +64,10 @@ const MyDashboard = () => {
       </Grid>
       <Footer background="neutral-3" justify="center" pad="small">
         <Text textAlign="center" size="small">
-          © 2020 Copyright Nahokov
+          © 2020 Copyright Nahoko Nakajima
         </Text>
       </Footer>
     </Grommet>
   );
 };
 export default MyDashboard;
-
-/*
-{["First", "Second", "Third"].map(name => (
-              <Button key={name} href="" hoverIndicator>
-                <Box pad={{ horizontal: "medium", vertical: "small" }}>
-                <Text>{name}</Text>
-                </Box>
-              </Button>
-            ))}
- */

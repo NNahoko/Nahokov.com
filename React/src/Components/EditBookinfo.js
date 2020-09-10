@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { EDIT_BOOKINFO, BOOKINFO } from "./Query";
 import { BookInfos } from "./Bookinfos";
-import { Close, Edit } from "grommet-icons";
 import {
   Box,
   Button,
@@ -13,6 +12,7 @@ import {
   Layer,
   TextInput,
 } from "grommet";
+import { Close, Edit } from "grommet-icons";
 
 const EditForm = () => {
   const [open, setOpen] = useState(false);
@@ -44,7 +44,7 @@ const EditForm = () => {
         <Button
           plain={false}
           icon={<Edit size="small" />}
-          color="#3D138D"
+          color="dark-6"
           size="small"
           onClick={onOpen}
         />
@@ -65,14 +65,14 @@ const EditForm = () => {
                 onSubmit={onClose}
               >
                 <Box flex={false} direction="row" justify="between">
-                  <Heading level={2} margin="none">
-                    EditBookinfo
+                  <Heading level={3} margin="none" color="dark-6">
+                    編集
                   </Heading>
                   <Button icon={<Close />} onClick={onClose} />
                 </Box>
                 <Box flex="grow" overflow="auto" pad={{ vertical: "medium" }}>
                   <FormField
-                    label="Title"
+                    label="書籍名"
                     name="title"
                     margin={("small", { bottom: "small" })}
                   >
@@ -85,7 +85,7 @@ const EditForm = () => {
                   </FormField>
 
                   <FormField
-                    label="Author"
+                    label="著者名"
                     name="author"
                     margin={("small", { bottom: "small" })}
                   >
@@ -98,7 +98,7 @@ const EditForm = () => {
                   </FormField>
 
                   <FormField
-                    label="Publisher"
+                    label="出版社"
                     name="publisher"
                     margin={("small", { bottom: "small" })}
                   >
@@ -116,13 +116,13 @@ const EditForm = () => {
                     margin={{ top: "small" }}
                   ></Box>
                 </Box>
-                <Box flex={false} as="footer" align="start">
+                <Box flex={false} as="footer" align="end">
                   <Button
                     icon={<Edit size="small" />}
                     type="submit"
-                    label="Edit"
+                    label="再登録"
                     onClick={send}
-                    primary
+                    color="dark-6"
                   />
                 </Box>
               </Box>

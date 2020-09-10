@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_TASK, TASK } from "./Query";
-
-import { Add, Close } from "grommet-icons";
-
+import { CREATE_TASK, TASK, CREATE_TASK_ONLY } from "./Query";
 import {
   Box,
   Button,
@@ -14,6 +11,7 @@ import {
   TextInput,
   Form,
 } from "grommet";
+import { Add, Close } from "grommet-icons";
 
 const CreateTodo = () => {
   const [task, setTask] = useState("");
@@ -27,8 +25,15 @@ const CreateTodo = () => {
     refetchQueries: [{ query: TASK }],
   });
 
+  const [createTaskOnly] = useMutation(CREATE_TASK_ONLY, {
+    refetchQueries: [{ query: TASK }],
+  });
+
   const submit = () => {
-    createTask({ variables: { task, limit, completed: false } });
+    limit
+      ? createTask({ variables: { task, limit } })
+      : createTaskOnly({ variables: { task } });
+
     setTask("");
     setLimit("");
   };
@@ -37,10 +42,11 @@ const CreateTodo = () => {
     <Grommet>
       <Box fill align="center" justify="center">
         <Button
+          plain={false}
           icon={<Add />}
-          label="Add"
+          color="dark-6"
+          label="登録"
           onClick={onOpen}
-          margin={{ top: "medium" }}
         />
         <Form>
           {open && (
@@ -59,15 +65,15 @@ const CreateTodo = () => {
                 onSubmit={onClose}
               >
                 <Box flex={false} direction="row" justify="between">
-                  <Heading level={2} margin="none">
-                    Add Todo
+                  <Heading level={3} margin="none" color="dark-6">
+                    新規
                   </Heading>
                   <Button icon={<Close />} onClick={onClose} />
                 </Box>
 
                 <Box flex="grow" overflow="auto" pad={{ vertical: "medium" }}>
                   <FormField
-                    label="Task"
+                    label="タスク名"
                     name="task"
                     margin={("small", { bottom: "small" })}
                   >
@@ -79,7 +85,7 @@ const CreateTodo = () => {
                     />
                   </FormField>
                   <FormField
-                    label="Limit"
+                    label="期限（任意）"
                     name="limit"
                     margin={("small", { bottom: "small" })}
                   >
@@ -93,12 +99,13 @@ const CreateTodo = () => {
                   </FormField>
                 </Box>
 
-                <Box flex={false} as="footer" align="start">
+                <Box flex={false} as="footer" align="end">
                   <Button
+                    icon={<Add />}
+                    color="dark-6"
                     type="submit"
-                    label="Submit"
+                    label="登録"
                     onClick={submit}
-                    primary
                   />
                 </Box>
               </Box>

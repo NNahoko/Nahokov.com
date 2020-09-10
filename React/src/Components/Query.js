@@ -101,6 +101,20 @@ export const CREATE_TASK = gql`
   }
 `;
 
+//////////
+export const CREATE_TASK_ONLY = gql`
+  mutation CreateTask($task: String!) {
+    createTask(input: { task: $task }) {
+      task {
+        id
+        task
+        limit
+      }
+    }
+  }
+`;
+//////////
+
 // EDIT TASK //
 export const EDIT_TASK = gql`
   mutation UpdateTask($id: ID!, $task: String!, $limit: ISO8601Date) {
