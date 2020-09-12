@@ -19,7 +19,7 @@ module Types
 
   field :bookinfos, [Types::BookinfoType], null: false
   def bookinfos
-    Bookinfo.all
+    Bookinfo.order(id: "DESC")
   end
 
   field :bookinfo, Types::BookinfoType, null: false do
@@ -31,7 +31,7 @@ module Types
 
   field :tasks, [Types::TaskType], null: false
   def tasks
-    Task.all
+    Task.order(id: "DESC")
   end
 
   field :task, Types::TaskType, null: false do
