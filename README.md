@@ -4,29 +4,33 @@
 
 <br/>
 
-### 利用技術
+#### 利用技術
 
-- #### <font color="silver">フロントエンド : </font>
+---
 
-  ### React ( Grommet, Apollo Client, Nginx )
+- ##### <font color="silver">フロントエンド : </font>
 
-- #### <font color="silver">バックエンド : </font>
+  #### React ( Grommet, Apollo Client, Nginx )
 
-  ### Ruby on Rails, GraphQL
+- ##### <font color="silver">バックエンド : </font>
 
-- #### <font color="silver">サーバー : </font>
+  #### Ruby on Rails, GraphQL
 
-  ### AWS EC2 ( Amazon Linux 2 )
+- ##### <font color="silver">サーバー : </font>
 
-- #### <font color="silver">データベース : </font>
+  #### AWS EC2 ( Amazon Linux 2 )
 
-  ### AWS RDS ( PostgreSQL )
+- ##### <font color="silver">データベース : </font>
 
-- #### <font color="silver">DNS : </font>
-  ### AWS Route 53
+  #### AWS RDS ( PostgreSQL )
+
+- ##### <font color="silver">DNS : </font>
+  #### AWS Route 53
   <br/>
 
-### サンプルアプリ
+#### サンプルアプリ
+
+---
 
 - #### <font color="silver">蔵書管理</font>
 
